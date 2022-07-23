@@ -1,0 +1,1 @@
+docker run --rm -it --name web -p 3000:3000 -v ${pwd}:/src react-docker:1.0.0-dev

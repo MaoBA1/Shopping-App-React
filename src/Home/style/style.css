@@ -1,0 +1,229 @@
+.Home {
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(19, 19, 19, 0.281);
+    
+  }
+
+
+.item-container {
+    background-color: #fff;
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding-bottom: 50px; 
+    padding-top: 50px; 
+    margin-bottom:10px;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.desc-container{
+    width: 400px;
+    margin: 0 auto;
+}
+
+.img {
+    width:300px;
+    height: 300px;
+}
+
+
+
+.buy-Button {
+    margin-right: 10px;
+    margin-left: 10px;
+    width:100px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: rgb(151, 151, 151);
+    color: #fff;
+    border-width: 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .buy-Button-fade {
+    margin-right: 10px;
+    margin-left: 10px;
+    width:100px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: rgb(151, 151, 151);
+    color: #fff;
+    border-width: 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    opacity: 0.7;
+  }
+
+  
+
+  .upper-Div {
+    margin-top:20px;
+    margin-left: 20px;
+    width: 80px;
+    height: 80px;
+    border-width: 0px;
+    border-radius: 50px;
+    justify-content: center;
+    display: flex;
+    background-color:#fff;
+    position: absolute;
+    z-index:1 ;
+    align-items: center;
+  }
+
+
+
+  
+
+  .cart-container-active {
+    width: 30%;
+    height: 100%;
+    position:absolute;
+    z-index:2 ;
+    background-color: #000;
+  }
+
+  .cart-close-button {
+    background-color: #fff;
+    border-radius: 50px;
+    width:40px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top:15px;
+  }
+
+  .cart-title-container {
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: gray;
+    background-color: #fff;
+    margin: 0 auto;
+  }
+
+  .product-in-cart-status{
+    background-color:rgb(69, 154, 240);
+    width: 350px;
+    margin: 0 auto;
+    border-radius: 50px;
+    border-style: solid;
+    border-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-in-cart-status-pluse{
+    background-color:rgb(69, 154, 240);
+    width: 50px;    
+    border-radius: 50px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    
+  }
+
+  
+
+  .product-in-cart-status-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+    margin: 0 auto;
+    padding-left: 50px;
+  }
+
+  .cart-product-item-container {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius:50px;
+  }
+
+  .cart-empty{
+    width: 100%;
+    background-color: #fff;
+  }
+
+  .list-style {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 45px;
+    padding-top:10px;
+    padding-bottom:10px
+  }
+
+  .list-item-style {
+    width:20%;
+    margin: 0 auto;
+  }
+
+  .list-item-text {
+    font-weight: bold;
+    font-size:12px;
+  } 
+
+  .cart-item-img {
+    width:60px;
+    height:80px;
+    border-radius: 30px;
+  }
+
+
+  .delete-from-cart-Button {
+    margin-right: 10px;
+    margin-left: 10px;
+    width:100px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: rgb(151, 151, 151);
+    color: #fff;
+    border-width: 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .buy-Button:hover, .upper-Div:hover, .cart-close-button:hover, .delete-from-cart-Button:hover, .product-in-cart-status-pluse:hover {
+    background-color:rgba(170, 164, 164, 0.856)
+  }
+
+  .buy-Button:active, .upper-Div:active, .cart-close-button:active, .delete-from-cart-Button:active, .product-in-cart-status-pluse:active {
+    background-color:#fff;
+    color:#000;
+  }
+
+  .cart-is-empty-container {
+    background-color:#fff;
+    width: 90%;
+    margin: 0 auto;
+    height:400px;
+    margin-top:50px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+  }
+
+  .total-pay {
+    color:#fff;
+  }
+  
+  
