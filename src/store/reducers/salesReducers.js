@@ -6,7 +6,7 @@ const initialState = {
     SalesFrom5DaysReducer: null,
 };
 
-
+ // eslint-disable-next-line
 export default (state = initialState, action) => {       
     switch (action.type){
         case GET_TOP_5_SALES:

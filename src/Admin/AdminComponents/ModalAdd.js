@@ -42,7 +42,7 @@ function ModalAdd(props) {
         setIsFiledFull(productName.length > 0 && productPrice.length > 0 && productDesc.length > 5 && productImageUrl.length > 10
             && Number.isInteger(price) && price > 0
             )
-    },[setIsFiledFull])
+    },[setIsFiledFull, productName, productPrice, productDesc, productImageUrl, price])
     return(
         <div className='modal-background'>
             <div className='modalContainer'>

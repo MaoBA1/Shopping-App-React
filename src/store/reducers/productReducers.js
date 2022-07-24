@@ -6,7 +6,7 @@ const initialState = {
     CartTotalReducer:null,
 };
 
-
+ // eslint-disable-next-line
 export default (state = initialState, action) => {       
     switch (action.type){
         case GET_ALL_PRODUCTS:
