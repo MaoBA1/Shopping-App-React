@@ -11,9 +11,7 @@ import Past5Item from './StatsComponents/Past5Item'
 function Stats(props) {
     const dispatch = useDispatch();
     const SaleSelector = useSelector(state => state.Top5SalesReducer);
-    console.log(SaleSelector);
     
-
     const getTop5Sales = useCallback(async() => {
         let action = getTop5SalesAction();
         try {

@@ -1,6 +1,6 @@
 import '../style/style.css';
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { edditProductAction } from '../../store/actions/productsActions';
 
 
@@ -20,7 +20,7 @@ function ModalEdit(props) {
         setIsFiledFull(productName.length > 0 && productDesc.length > 5 && productImageUrl.length > 10
             && Number.isInteger(price) && price > 0
             )
-    })
+    },[setIsFiledFull])
 
 
     const edditProduct = async() => {

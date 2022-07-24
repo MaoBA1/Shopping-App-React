@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './style/style.css';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,18 +19,18 @@ function Admin() {
   const [modalEdditParams, setModalEdditParams] = useState(null);
   const [modalDeleteParams, setModalDeleteParams] = useState(null);
 
-  const getAllProducts = async() => {
+  const getAllProducts = useCallback(async() => {
     let action = getAllProductsAction();
     try{
         await dispatch(action);
     } catch(error) {
         console.log(error);
     }
-  }
+  },[dispatch])
 
   useEffect(() => {
     getAllProducts();
-  },[getAllProducts])
+  },[getAllProducts, productsSelector])
   
   const openMoadlEddit = params => {
     setModalEdditParams(params);
