@@ -81,7 +81,7 @@ function Stats(props) {
                 <div className="block-container">
                 <Scrollbars style={{height:'90%'}}>
                     
-                    {SaleSelector?.SalesFrom5DaysReducer && SaleSelector?.SalesFrom5DaysReducer.map(item => <Past5Item key={item._id} item={item}/>) }
+                    {SaleSelector?.SalesFrom5DaysReducer && SaleSelector?.SalesFrom5DaysReducer.sort((a, b) => (new Date(b.date) - new Date(a.date))).map(item => <Past5Item key={item._id} item={item}/>) }
                 </Scrollbars>
                 </div>
                 

@@ -50,7 +50,7 @@ function Admin() {
                 <h4>Add New Product</h4>
             </button>
         </div>
-        { productsSelector && productsSelector?.ProductsReducer?.map(item => <ProductItem key={item._id} item={item} openModalEddit={openMoadlEddit}  openMoadlDelete={openMoadlDelete}/>)}
+        { productsSelector && productsSelector?.ProductsReducer?.sort((a, b) => (new Date(b.creatAdt) - new Date(a.creatAdt))).map(item => <ProductItem key={item._id} item={item} openModalEddit={openMoadlEddit}  openMoadlDelete={openMoadlDelete}/>)}
         {isVisibleAdd && <ModalAdd  closeModal={setIsVisibleAdd}/>}
         {isVisibleEddit && <ModalEddit  closeModal={setIsVisibleEddit} params={modalEdditParams}/>}
         {isVisibleDelete && <ModalDelete  closeModal={setIsVisibleDelete} params={modalDeleteParams}/>}

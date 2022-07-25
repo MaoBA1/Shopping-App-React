@@ -36,7 +36,7 @@ function Home() {
             <FaIcons.IoMdCart  onClick={() => setIsVisibale(true)} size={50}/>
           </button>
           <Scrollbars style={{width: '100%', height: '85%', marginTop: 30}}>
-            { productsSelector && productsSelector?.ProductsReducer?.map(item => <ProductItem  key={item._id} item={item}/>)}
+            { productsSelector && productsSelector?.ProductsReducer?.sort((a, b) => (new Date(b.creatAdt) - new Date(a.creatAdt))).map(item => <ProductItem  key={item._id} item={item}/>)}
           </Scrollbars>
       </div>
     
