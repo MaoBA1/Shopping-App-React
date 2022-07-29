@@ -1,7 +1,7 @@
 import '../style/style.css';
 import { useDispatch } from 'react-redux';
 import { deleteProductAction } from '../../store/actions/productsActions';
-
+import { getAllProducts } from '../../ApiCalls';
 
 
 function ModalDelete(props) {
@@ -13,6 +13,7 @@ function ModalDelete(props) {
             await dispatch(action)
             .then(result => {
                 if(result) {
+                    getAllProducts(dispatch);
                     props.closeModal(false);
                     alert(`${props.params.productName} was deleted successfully`)
                 }

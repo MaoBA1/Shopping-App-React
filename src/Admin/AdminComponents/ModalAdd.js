@@ -2,6 +2,7 @@ import '../style/style.css';
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addNewProductAction } from '../../store/actions/productsActions';
+import { getAllProducts } from '../../ApiCalls';
 
 
 
@@ -28,6 +29,7 @@ function ModalAdd(props) {
             await dispatch(action)
             .then(result => {
                 if(result) {
+                    getAllProducts(dispatch);
                     props.closeModal(false);
                     alert(`${productName} was added successfully`)
                 }

@@ -1,9 +1,9 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import '../style/style.css';
 import * as GrForm from 'react-icons/gr';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllCartProductsAction, getTotalPayFromCurrentCartAction } from '../../store/actions/productsActions';
+import { getAllCartProducts, getCartTotalPay, getAllProducts } from '../../ApiCalls';
 import { buyCartAction } from '../../store/actions/salessActions';
 
 import CartProductItem from './CartProductItem';
@@ -12,24 +12,8 @@ const Cart = props => {
     const dispatch = useDispatch();
     const cartProductsSelector = useSelector(state => state.CartProductReducer);
     const cartTotalPaySelector = useSelector(state => state.CartTotalReducer);
+    const cartProducts = cartProductsSelector?.CartProductReducer;
     const total = cartTotalPaySelector?.CartTotalReducer;
-    const getAllCartProducts = useCallback(async() => {
-        let action = getAllCartProductsAction();
-        try{
-            await dispatch(action);
-        } catch(error) {
-            console.log(error.message);
-        }
-    },[dispatch])
-
-    const getCartTotalPay =  useCallback( async() => {
-        let action = getTotalPayFromCurrentCartAction();
-        try{
-            await dispatch(action);
-        } catch(error) {
-            console.log(error.message);
-        }
-    },[dispatch])
 
     const buyCart = async() => {
         let action = buyCartAction();
@@ -37,6 +21,9 @@ const Cart = props => {
             await dispatch(action)
             .then(result => {
                 if(result) {
+                    getAllProducts(dispatch);
+                    getAllCartProducts(dispatch);
+                    getCartTotalPay(dispatch);
                     alert('Your purchase has been made successfully')
                 }
             })
@@ -46,9 +33,9 @@ const Cart = props => {
     }
 
     useEffect(() => {
-        getAllCartProducts();
-        getCartTotalPay();
-    },[getAllCartProducts, getCartTotalPay, cartProductsSelector, cartTotalPaySelector])
+        getAllCartProducts(dispatch);
+        getCartTotalPay(dispatch);
+    },[dispatch])
     
     
     
@@ -66,12 +53,12 @@ const Cart = props => {
                 </div>
 
                  {
-                    cartProductsSelector && cartProductsSelector?.CartProductReducer?.length > 0
-                    && cartProductsSelector.CartProductReducer.map(item => <CartProductItem  key={item._id} item={item}/>)
+                    cartProducts && cartProducts?.length > 0
+                    && cartProducts?.map(item => <CartProductItem  key={item._id} item={item}/>)
                  } 
 
                  {
-                    (!cartProductsSelector || cartProductsSelector?.CartProductReducer?.length === 0)
+                    (!cartProducts || cartProducts?.length === 0)
                     && (
                         <div className='cart-is-empty-container'>
                             <h3>Your Cart is Empty</h3>
@@ -84,7 +71,7 @@ const Cart = props => {
 
                 <div>
                     {
-                        !cartProductsSelector || cartProductsSelector?.CartProductReducer?.length === 0?
+                        !cartProducts || cartProducts?.length === 0?
                         (
                             
                             <button className="buy-Button-fade">

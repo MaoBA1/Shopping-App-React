@@ -1,8 +1,8 @@
 import './style/style.css';
-import React, { useEffect, useCallback} from 'react';
+import React, { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTop5SalesAction, getTop5UniqueSalesAction, get5DasyPastAction } from '../store/actions/salessActions';
 import { Scrollbars } from 'react-custom-scrollbars';
+import { getTop5Sales, getTop5UniqueSales, getSallesFrom5PastDays } from '../ApiCalls';
 
 import Top5Item from './StatsComponents/Top5Item';
 import Top5UniqueItem from './StatsComponents/Top5UniqueItem';
@@ -11,39 +11,12 @@ import Past5Item from './StatsComponents/Past5Item'
 function Stats(props) {
     const dispatch = useDispatch();
     const SaleSelector = useSelector(state => state.Top5SalesReducer);
-    
-    const getTop5Sales = useCallback(async() => {
-        let action = getTop5SalesAction();
-        try {
-            await dispatch(action);
-        } catch (error) {
-            console.log(error.message);
-        }
-    },[dispatch]);
-
-    const getTop5UniqueSales = useCallback(async() => {
-        let action = getTop5UniqueSalesAction();
-        try {
-            await dispatch(action);
-        } catch (error) {
-            console.log(error.message);
-        }
-    },[dispatch]);
-
-    const getSallesFrom5PastDays = useCallback(async() => {
-        let action = get5DasyPastAction();
-        try {
-            await dispatch(action);
-        } catch (error) {
-            console.log(error.message);
-        }
-    },[dispatch]);
 
     useEffect(() => {
-        getTop5Sales();
-        getTop5UniqueSales();
-        getSallesFrom5PastDays();
-    },[getTop5Sales,getTop5UniqueSales, getSallesFrom5PastDays]);
+        getTop5Sales(dispatch);
+        getTop5UniqueSales(dispatch);
+        getSallesFrom5PastDays(dispatch);
+    },[dispatch]);
 
 
     return(

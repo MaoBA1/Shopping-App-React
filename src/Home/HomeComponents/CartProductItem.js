@@ -1,6 +1,7 @@
 import '../style/style.css';
 import { useDispatch } from 'react-redux';
 import { deleteProductFromCartAction } from '../../store/actions/productsActions';
+import { getAllProducts, getAllCartProducts, getCartTotalPay } from '../../ApiCalls';
 
 
 const CartProductItem = props => {
@@ -11,6 +12,9 @@ const CartProductItem = props => {
             await dispatch(action)
             .then(result => {
                 if(result) {
+                    getAllProducts(dispatch);
+                    getAllCartProducts(dispatch);
+                    getCartTotalPay(dispatch);
                     alert(`${props.item.productName} was deleted from your cart successfully!`);
                 }
             })
