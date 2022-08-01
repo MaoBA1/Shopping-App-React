@@ -45,7 +45,7 @@ function Home() {
           <button className="upper-Div">
             <FaIcons.IoMdCart color="#fff"  onClick={() => setIsVisibale(true)} size={50}/>
           </button>
-          <Scrollbars style={{width: '100%', height: '85%', marginTop: 30}}>
+          <Scrollbars style={{width: '100%', height: '82%', marginTop: 30}}>
               { productsSelector && sliceIntoChunks(productsSelector?.ProductsReducer?.sort((a, b) => (new Date(b.creatAdt) - new Date(a.creatAdt)))).map(item => <Row key={item.id} item={item.chunk}/>)}
           </Scrollbars>
       </div>
