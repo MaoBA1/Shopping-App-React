@@ -2,8 +2,7 @@
 name: mission
 
 on:
-  commit:
-    branches: [ main ]
+  
   push: 
     branches: [ main ]
 
