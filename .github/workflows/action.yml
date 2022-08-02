@@ -16,4 +16,4 @@ steps:
       image: repo/image
       tags: v1, latest
       registry: registry-url.io
-      dockerfile: Dockerfile.ci
+      dockerfile: Dockerfile
